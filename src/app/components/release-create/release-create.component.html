@@ -1,0 +1,43 @@
+<div class="container">
+        <form #releaseForm=ngForm (ngSubmit)="saveRelease(releaseForm ,nombre, descripcion, file)">
+            <div class="row">
+                        <div class="col-10 offset-1">
+                            <h1 class="mt-4">Nueva Liberación</h1>
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                            <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+                                        <div class="col-sm-10">
+                                            <input #nombre ngModel name="nombre" type="text" class="form-control" id="nombre" placeholder="Liberación No. 1" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripcion:</label>
+                                        <textarea #descripcion ngModel name="descripcion" class="form-control" id="descripcion" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <div class="custom-file">
+                                        <input name="file" #file ngModel type="file" class="form-control" (change)="handleFileInput($event.target.files)" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+            </div>
+            <div class="row">
+                <div class="col-1 offset-2 mt-4">
+                    <button type="submit"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" [disabled]="file.value=='' || !releaseForm.valid">Enviar Liberación</button>
+                </div>
+                <div class="col-1 offset-2 mt-4">
+                    <a [routerLink]="['/']" class="btn btn-secondary btn-lg" role="button">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>

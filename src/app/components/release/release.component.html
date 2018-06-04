@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <div class="row">
+    <div class="col-12">
+        <h1 class="text-center">Lista de Liberación</h1>
+    </div>
+    <div class="col-12 mb-4">
+        <a [routerLink]="['/release/create']"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Nueva Liberación</a>
+    </div>
+    <div class="col-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha de creación</th>
+                <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let release of releases">
+                    <th scope="row">{{release.id}}</th>
+                    <td>{{ release.nombre }}</td>
+                    <td>{{ release.descripcion }}</td>
+                    <td>{{ release.created_at  }}</td>
+                    <td><span class="badge badge-success">{{ release.status }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
